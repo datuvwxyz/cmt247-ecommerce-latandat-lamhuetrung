@@ -29,6 +29,9 @@
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 
+    <!-- Contact Style -->
+    <link type="text/css" rel="stylesheet" href="css/contact.css" />
+
 
 </head>
 
@@ -46,42 +49,12 @@
         <!-- container -->
         <div class="container">
             <!-- row -->
-            @include('partials.banner')
+            @yield('content')
             <!-- /row -->
         </div>
         <!-- /container -->
     </div>
     <!-- /SECTION -->
-
-    <!-- SECTION -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            @include('partials.main')
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /SECTION -->
-
-    <!-- HOT DEAL SECTION -->
-    <div id="hot-deal" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            @include('partials.hotdeal');
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /HOT DEAL SECTION -->
-
-    @include('partials.topselling');
-
-    <!-- NEWSLETTER -->
-    @include('partials.newlester');
-    <!-- /NEWSLETTER -->
 
     <!-- FOOTER -->
     <footer id="footer">

@@ -15,10 +15,10 @@
             </ul>
             <ul class="header-links pull-right">
                 <li>
-                    <a href="#"><i class="fa fa-dollar"></i> USD</a>
+                    <a href="#"><i class="fa fa-sign-in"></i> Đăng nhập</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-user-o"></i>Tài khoản</a>
+                    <a href="#"><i class="fa fa-user-plus"></i> Đăng ký</a>
                 </li>
             </ul>
         </div>
@@ -34,7 +34,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
+                        <a href="{{route('home')}}" class="logo">
                             <img src="./img/logo/cmtLogo.png" alt="" />
                         </a>
                     </div>
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="cart-btns">
                                     <a href="#">Xem giỏ hàng</a>
-                                    <a href="#">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="{{route('checkout')}}">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
