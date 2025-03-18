@@ -62,7 +62,7 @@
                     <div class="header-ctn">
                         <!-- Wishlist -->
                         <div>
-                            <a href="#">
+                            <a href="{{route('wishlist')}}">
                                 <i class="fa fa-heart-o"></i>
                                 <span>Yêu thích</span>
                                 <div class="qty">2</div>
@@ -118,7 +118,7 @@
                                     <h5>SUBTOTAL: $2940.00</h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="#">Xem giỏ hàng</a>
+                                    <a href="{{route('cart')}}">Xem giỏ hàng</a>
                                     <a href="{{route('checkout')}}">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
