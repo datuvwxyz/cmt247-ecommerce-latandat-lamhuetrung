@@ -12,11 +12,10 @@ use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home') ;
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name(name: 'dashboard');
+// ->middleware(['auth', 'verified'])->name('dashboard')
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,3 +32,4 @@ Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 Route::get('/cart', [WishlistController::class, 'index'])->name('cart');
+Route::get('/', [HomeController::class, 'index'])->name('home') ;

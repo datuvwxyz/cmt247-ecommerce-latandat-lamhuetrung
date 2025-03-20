@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         return view('pages.main');
     }
+
+    public function dashboard()
+    {
+        return view('admin.pages.main');
+    }
 }
