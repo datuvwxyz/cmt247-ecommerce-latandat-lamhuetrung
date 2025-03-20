@@ -1,0 +1,12 @@
+.name-user {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.name-user:hover {
+    color: #ffffffae;
+    text-decoration: none;
+}
+.fs-11 {
+    font-size: 11px;
+}
