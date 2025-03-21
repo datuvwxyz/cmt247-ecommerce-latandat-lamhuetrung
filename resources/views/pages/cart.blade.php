@@ -1,4 +1,4 @@
-@extends('pages.main')
+@extends('welcome')
 @section('content')
 <style>
     .cart-container {

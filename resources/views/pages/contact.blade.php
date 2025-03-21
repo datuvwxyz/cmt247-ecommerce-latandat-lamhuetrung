@@ -1,4 +1,4 @@
-@extends('pages.main')
+@extends('welcome')
 @section('content')
 <section class="contact-us section">
     <div class="container">

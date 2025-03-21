@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>CMT247</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet" />
@@ -28,7 +32,13 @@
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css')}}" />
 
+    <!-- Contact Style -->
+    <link type="text/css" rel="stylesheet" href="css/contact.css" />
+
+
+    <link rel="icon" href="img/logo/cmtLogo.png" type="image/png">
 
 </head>
 
@@ -41,47 +51,7 @@
     @include('partials.navbar')
     <!-- /NAVIGATION -->
 
-    <!-- SECTION -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            @include('partials.banner')
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /SECTION -->
-
-    <!-- SECTION -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            @include('partials.main')
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /SECTION -->
-
-    <!-- HOT DEAL SECTION -->
-    <div id="hot-deal" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            @include('partials.hotdeal');
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /HOT DEAL SECTION -->
-
-    @include('partials.topselling');
-
-    <!-- NEWSLETTER -->
-    @include('partials.newlester');
-    <!-- /NEWSLETTER -->
+    @yield('content')
 
     <!-- FOOTER -->
     <footer id="footer">
