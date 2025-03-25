@@ -29,6 +29,7 @@
 
     <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -37,7 +38,10 @@
     <!-- Contact Style -->
     <link type="text/css" rel="stylesheet" href="css/contact.css" />
 
+    <!-- SearchBar Custom Style -->
+    <link type="text/css" rel="stylesheet" href="css/search-bar-custom.css" />
 
+    <!-- CMT logo -->
     <link rel="icon" href="img/logo/cmtLogo.png" type="image/png">
 
 </head>
@@ -66,6 +70,9 @@
     <script src="js/nouislider.min.js"></script>
     <script src="js/jquery.zoom.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- SearchBar custom script -->
+    <script src="js/search-bar-custom.js"></script>
 
 </body>
 

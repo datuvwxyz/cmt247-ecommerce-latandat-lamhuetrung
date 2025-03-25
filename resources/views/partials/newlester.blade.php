@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="newsletter">
-                    <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                    <p>Đăng nhập để nhận bản tin </p>
                     <form>
-                        <input class="input" type="email" placeholder="Enter Your Email" />
+                        <input class="input" type="email" placeholder="Nhập email của bạn" />
                         <button class="newsletter-btn">
-                            <i class="fa fa-envelope"></i> Subscribe
+                            <i class="fa fa-envelope"></i> Đăng ký
                         </button>
                     </form>
                     <ul class="newsletter-follow">

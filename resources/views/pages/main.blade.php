@@ -21,15 +21,15 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-                    <h3 class="title">New Products</h3>
+                    <h3 class="title">Sản phẩm mới</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
                             <li class="active">
-                                <a data-toggle="tab" href="#tab1">Laptops</a>
+                                <a data-toggle="tab" href="#tab1">Laptop</a>
                             </li>
-                            <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+                            <li><a data-toggle="tab" href="#tab1">Điện thoại</a></li>
+                            <li><a data-toggle="tab" href="#tab1">Camera</a></li>
+                            <li><a data-toggle="tab" href="#tab1">Phụ kiện</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                                         </div>
                                     </div>
                                     <div class="product-body">
-                                        <p class="product-category">Category</p>
+                                        <p class="product-category">Danh mục</p>
                                         <h3 class="product-name">
                                             <a href="#">product name goes here</a>
                                         </h3>
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="add-to-cart">
                                         <button class="add-to-cart-btn">
-                                            <i class="fa fa-shopping-cart"></i> add to cart
+                                            <i class="fa fa-shopping-cart"></i>Thêm vào giỏ
                                         </button>
                                     </div>
                                 </div>
@@ -94,11 +94,11 @@
                                     <div class="product-img">
                                         <img src="./img/product02.png" alt="" />
                                         <div class="product-label">
-                                            <span class="new">NEW</span>
+                                            <span class="new">Mới</span>
                                         </div>
                                     </div>
                                     <div class="product-body">
-                                        <p class="product-category">Category</p>
+                                        <p class="product-category">Danh mục</p>
                                         <h3 class="product-name">
                                             <a href="#">product name goes here</a>
                                         </h3>

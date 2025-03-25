@@ -7,15 +7,15 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-                    <h3 class="title">Top selling</h3>
+                    <h3 class="title">Bán chạy nhất</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
                             <li class="active">
                                 <a data-toggle="tab" href="#tab2">Laptops</a>
                             </li>
-                            <li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Điện thoại</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Camera</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Phụ kiện</a></li>
                         </ul>
                     </div>
                 </div>
@@ -265,7 +265,7 @@
         <div class="row">
             <div class="col-md-4 col-xs-6">
                 <div class="section-title">
-                    <h4 class="title">Top selling</h4>
+                    <h4 class="title">Bán chạy nhất</h4>
                     <div class="section-nav">
                         <div id="slick-nav-3" class="products-slick-nav"></div>
                     </div>
@@ -279,7 +279,7 @@
                                 <img src="./img/product07.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -296,7 +296,7 @@
                                 <img src="./img/product08.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -313,7 +313,7 @@
                                 <img src="./img/product09.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -332,7 +332,7 @@
                                 <img src="./img/product01.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -349,7 +349,7 @@
                                 <img src="./img/product02.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -366,7 +366,7 @@
                                 <img src="./img/product03.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -382,7 +382,7 @@
 
             <div class="col-md-4 col-xs-6">
                 <div class="section-title">
-                    <h4 class="title">Top selling</h4>
+                    <h4 class="title">Bán chạy nhất</h4>
                     <div class="section-nav">
                         <div id="slick-nav-4" class="products-slick-nav"></div>
                     </div>
@@ -396,7 +396,7 @@
                                 <img src="./img/product04.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -413,7 +413,7 @@
                                 <img src="./img/product05.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -430,7 +430,7 @@
                                 <img src="./img/product06.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -449,7 +449,7 @@
                                 <img src="./img/product07.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -466,7 +466,7 @@
                                 <img src="./img/product08.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category">Danh mục</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -501,7 +501,7 @@
 
             <div class="col-md-4 col-xs-6">
                 <div class="section-title">
-                    <h4 class="title">Top selling</h4>
+                    <h4 class="title">Bán chạy nhất</h4>
                     <div class="section-nav">
                         <div id="slick-nav-5" class="products-slick-nav"></div>
                     </div>

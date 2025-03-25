@@ -461,10 +461,6 @@ textarea.input {
 	Search
 \*----------------------------*/
 
-.header-search {
-  padding: 15px 0px;
-}
-
 .header-search form {
   position: relative;
 }
@@ -480,8 +476,7 @@ textarea.input {
 }
 
 .header-search form .search-btn {
-  height: 40px;
-  width: 100px;
+
   background: #D10024;
   color: #FFF;
   font-weight: 700;
