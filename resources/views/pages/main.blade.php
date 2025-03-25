@@ -21,7 +21,6 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-<<<<<<< HEAD
                     <h3 class="title">Sản phẩm mới</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
@@ -31,17 +30,6 @@
                             <li><a data-toggle="tab" href="#tab1">Điện thoại</a></li>
                             <li><a data-toggle="tab" href="#tab1">Camera</a></li>
                             <li><a data-toggle="tab" href="#tab1">Phụ kiện</a></li>
-=======
-                    <h3 class="title">New Products</h3>
-                    <div class="section-nav">
-                        <ul class="section-tab-nav tab-nav">
-                            <li class="active">
-                                <a data-toggle="tab" href="#tab1">Laptops</a>
-                            </li>
-                            <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
->>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                         </ul>
                     </div>
                 </div>
@@ -65,11 +53,7 @@
                                         </div>
                                     </div>
                                     <div class="product-body">
-<<<<<<< HEAD
                                         <p class="product-category">Danh mục</p>
-=======
-                                        <p class="product-category">Category</p>
->>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                                         <h3 class="product-name">
                                             <a href="#">product name goes here</a>
                                         </h3>
@@ -99,11 +83,7 @@
                                     </div>
                                     <div class="add-to-cart">
                                         <button class="add-to-cart-btn">
-<<<<<<< HEAD
                                             <i class="fa fa-shopping-cart"></i>Thêm vào giỏ
-=======
-                                            <i class="fa fa-shopping-cart"></i> add to cart
->>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                                         </button>
                                     </div>
                                 </div>
@@ -114,19 +94,11 @@
                                     <div class="product-img">
                                         <img src="./img/product02.png" alt="" />
                                         <div class="product-label">
-<<<<<<< HEAD
                                             <span class="new">Mới</span>
                                         </div>
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Danh mục</p>
-=======
-                                            <span class="new">NEW</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
->>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                                         <h3 class="product-name">
                                             <a href="#">product name goes here</a>
                                         </h3>
