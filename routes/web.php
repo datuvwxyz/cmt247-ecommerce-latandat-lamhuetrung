@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -36,7 +37,7 @@ Route::get('/store', [StoreController::class, 'index'])->name('store');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
-Route::get('/cart', [WishlistController::class, 'index'])->name('cart');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/', [HomeController::class, 'index'])->name('home') ;
 
 //ADMIN LÀM TRƯỚC CHỈNH SỬA SAU

@@ -14,11 +14,12 @@
 }
 
 .select-selected {
+    font-size: small;
+    font-weight: bold;
     background-color: #ffffff;
     padding: 14px 10px;
-    border: 1px solid #4a90e2;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 6px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     justify-content: space-between;
@@ -59,6 +60,7 @@
 }
 
 .select-items.show {
+    border-radius: 10px;
     max-height: 600px;
     opacity: 1;
     padding: 20px;
@@ -67,6 +69,9 @@
 }
 
 .select-items div {
+    font: caption;
+    font-size: small;
+    font-weight: bold;
     padding: 15px 3px;
     gap: 10px;
     cursor: pointer;
@@ -87,7 +92,6 @@
 }
 
 .select-items div::before {
-    content: '•';
     margin-right: 10px;
     color: #4a90e2;
     opacity: 0;
@@ -105,9 +109,8 @@
 
 .search-input {
     flex-grow: 1;
-    padding: 15px;
-    border: 2px solid #4a90e2;
-    border-radius: 8px;
+    padding: 14px 10px;
+    border-radius: 6px;
     transition: all 0.3s ease;
     width: 300px;
 }

@@ -38,8 +38,14 @@
     <!-- Contact Style -->
     <link type="text/css" rel="stylesheet" href="css/contact.css" />
 
+    <!-- Cart Style -->
+    <link type="text/css" rel="stylesheet" href="css/cart.css" />
+
     <!-- SearchBar Custom Style -->
     <link type="text/css" rel="stylesheet" href="css/search-bar-custom.css" />
+
+     <!-- Wishlist Custom Style -->
+     <link type="text/css" rel="stylesheet" href="css/wishlist.css" />
 
     <!-- CMT logo -->
     <link rel="icon" href="img/logo/cmtLogo.png" type="image/png">
