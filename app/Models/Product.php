@@ -2,33 +2,44 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    protected $table = 'products';
-    protected $primaryKey = 'product_id';
-    public $incrementing = true;
-    protected $fillable = [
-        'name',
-        'sku',
-        'barcode',
-        'unit',
-        'brand_id',
-        'category_id',
-        'price',
-    ];
+    protected $fillable = ['name', 'sku', 'barcode', 'unit', 'brand_id', 'category_id', 'price', 'quantity', 'image', 'short_description', 'detailed_description'];
 
-    public function brands()
+    // Mối quan hệ: Một sản phẩm thuộc về một thương hiệu
+    public function brand()
     {
-        return $this->hasMany(Brand::class, 'brand_id', 'brand_id');
+        return $this->belongsTo(Brand::class);
     }
-    
-    public function categories()
+
+    // Mối quan hệ: Một sản phẩm thuộc về một danh mục
+    public function category()
     {
-        return $this->hasMany(Category::class, 'category_id', 'category_id');
+        return $this->belongsTo(Category::class);
+    }
+
+    // Mối quan hệ: Một sản phẩm có thể có nhiều đánh giá
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    // Mối quan hệ: Một sản phẩm có thể có nhiều mặt hàng trong giỏ hàng
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+
+    // Mối quan hệ: Một sản phẩm có thể có nhiều mặt hàng trong đơn hàng
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }
+

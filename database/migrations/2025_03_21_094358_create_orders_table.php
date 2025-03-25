@@ -9,13 +9,12 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('order_id');
-            $table->unsignedBigInteger('user_id');
-            $table->decimal('total_price', 10, 2);
-            $table->string('status')->default('pending');
+            $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->decimal('total_price', 10, 2)->default(0);
+            $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->softDeletes();
         });
     }
 
