@@ -461,6 +461,13 @@ textarea.input {
 	Search
 \*----------------------------*/
 
+<<<<<<< HEAD
+=======
+.header-search {
+  padding: 15px 0px;
+}
+
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 .header-search form {
   position: relative;
 }
@@ -476,7 +483,12 @@ textarea.input {
 }
 
 .header-search form .search-btn {
+<<<<<<< HEAD
 
+=======
+  height: 40px;
+  width: 100px;
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
   background: #D10024;
   color: #FFF;
   font-weight: 700;

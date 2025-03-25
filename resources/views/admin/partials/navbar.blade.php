@@ -80,9 +80,15 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< HEAD
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                 <img class="img-profile rounded-circle"
                     src="{{asset('img/undraw_profile.svg')}}">
+=======
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Dev Trung - Dev Đạt</span>
+                <img class="img-profile rounded-circle"
+                    src="img/undraw_profile.svg">
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

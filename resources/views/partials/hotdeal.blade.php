@@ -27,9 +27,15 @@
                     </div>
                 </li>
             </ul>
+<<<<<<< HEAD
             <h2 class="text-uppercase">Ưu đãi hấp dẫn tuần này</h2>
             <p>Bộ sưu tập mới giảm giá tới 50%</p>
             <a class="primary-btn cta-btn" href="#">Mua ngay</a>
+=======
+            <h2 class="text-uppercase">hot deal this week</h2>
+            <p>New Collection Up to 50% OFF</p>
+            <a class="primary-btn cta-btn" href="#">Shop now</a>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
         </div>
     </div>
 </div>

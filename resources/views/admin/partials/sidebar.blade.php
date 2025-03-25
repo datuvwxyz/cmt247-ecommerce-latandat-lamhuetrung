@@ -2,7 +2,14 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+<<<<<<< HEAD
         <img src="/img/logo/cmtLogo.png" alt="" style="width: 170px; height: 60px;">
+=======
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">ADMIN</div>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
     </a>
 
     <!-- Divider -->
@@ -48,6 +55,7 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
+<<<<<<< HEAD
                 <a class="collapse-item" href="{{ route('categories.create') }}">Thêm mới</a>
                 <a class="collapse-item" href="{{ route('categories.index') }}">Danh sách</a>
             </div>
@@ -66,6 +74,10 @@
                 <h6 class="collapse-header">Chức năng:</h6>
                 <a class="collapse-item" href="">Thêm mới</a>
                 <a class="collapse-item" href="">Danh sách</a>
+=======
+                <a class="collapse-item" onclick="DangPhatTrien()">Thêm mới</a>
+                <a class="collapse-item" onclick="DangPhatTrien()">Danh sách</a>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
             </div>
         </div>
     </li>
@@ -80,8 +92,13 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
+<<<<<<< HEAD
                 <a class="collapse-item" href="">Thêm mới</a>
                 <a class="collapse-item" href="">Danh sách</a>
+=======
+                <a class="collapse-item" onclick="DangPhatTrien()">Thêm mới</a>
+                <a class="collapse-item" onclick="DangPhatTrien()">Danh sách</a>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
             </div>
         </div>
     </li>
@@ -96,8 +113,13 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
+<<<<<<< HEAD
                 <a class="collapse-item" href="">Thêm mới</a>
                 <a class="collapse-item" href="">Danh sách</a>
+=======
+                <a class="collapse-item" onclick="DangPhatTrien()">Thêm mới</a>
+                <a class="collapse-item" onclick="DangPhatTrien()">Danh sách</a>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
             </div>
         </div>
     </li>
@@ -113,7 +135,11 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
                 <a class="collapse-item" onclick="DangPhatTrien()">Thêm mới</a>
+<<<<<<< HEAD
                 <a class="collapse-item" href="">Danh sách</a>
+=======
+                <a class="collapse-item" onclick="DangPhatTrien()">Danh sách</a>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
             </div>
         </div>
     </li>
@@ -139,7 +165,11 @@
     <li class="nav-item">
         <a class="nav-link" onclick="DangPhatTrien()">
             <i class="fa-solid fa-chart-line"></i>
+<<<<<<< HEAD
             <span>Doanh thu</span></a>
+=======
+            <span>Danh thu</span></a>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
     </li>
 
 
@@ -159,10 +189,18 @@
 <script>
     function DangPhatTrien() {
         Swal.fire({
+<<<<<<< HEAD
             title: 'Tính năng đăng phát triển!',
             text: 'Tính năng này còn đang trong quá trình phát triển.',
             icon: 'warning',
             confirmButtonText: 'OK'
         });
+=======
+        title: 'Tính năng đăng phát triển!',
+        text: 'Tính năng này còn đang trong quá trình phát triển.',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+    });
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
     }
 </script>

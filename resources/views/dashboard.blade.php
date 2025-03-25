@@ -14,12 +14,17 @@
     <title>{{ config('app.name', 'Laravel') }} - Dashboard</title>
     <link rel="icon" href="img/logo/cmtLogo.png" type="image/png">
     <!-- Custom fonts for this template-->
+<<<<<<< HEAD
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+=======
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
+<<<<<<< HEAD
     <link href="{{ asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -27,6 +32,11 @@
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+=======
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/9c5a38192a.js" crossorigin="anonymous"></script>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 </head>
 
 <body id="page-top">
@@ -53,7 +63,11 @@
 
                     <!-- Page Heading -->
                     @yield('content')
+<<<<<<< HEAD
                     @yield('scripts')
+=======
+
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                 </div>
                 <!-- /.container-fluid -->
 
@@ -79,6 +93,7 @@
     @include('admin.partials.modal')
 
     <!-- Bootstrap core JavaScript-->
+<<<<<<< HEAD
     <script src="{{ asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -98,4 +113,24 @@
     <script src="{{ asset('js/demo/chart-area-demo.js')}}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js')}}"></script>
 </body>
+=======
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 </html>

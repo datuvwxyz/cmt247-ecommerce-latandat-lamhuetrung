@@ -29,7 +29,10 @@
 
     <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+=======
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -38,6 +41,7 @@
     <!-- Contact Style -->
     <link type="text/css" rel="stylesheet" href="css/contact.css" />
 
+<<<<<<< HEAD
     <!-- Cart Style -->
     <link type="text/css" rel="stylesheet" href="css/cart.css" />
 
@@ -48,6 +52,9 @@
      <link type="text/css" rel="stylesheet" href="css/wishlist.css" />
 
     <!-- CMT logo -->
+=======
+
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
     <link rel="icon" href="img/logo/cmtLogo.png" type="image/png">
 
 </head>
@@ -77,9 +84,12 @@
     <script src="js/jquery.zoom.min.js"></script>
     <script src="js/main.js"></script>
 
+<<<<<<< HEAD
     <!-- SearchBar custom script -->
     <script src="js/search-bar-custom.js"></script>
 
+=======
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 </body>
 
 </html>

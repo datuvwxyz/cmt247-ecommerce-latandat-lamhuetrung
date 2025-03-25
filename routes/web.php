@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -10,12 +11,18 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+=======
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+<<<<<<< HEAD
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\UserMiddleware;
 
@@ -24,6 +31,13 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->name(name: 'dash
 
 Route::get('/welcome', [HomeController::class, 'index'])->name(name: 'welcome')->middleware(UserMiddleware::class);
 // ->middleware(['auth', 'verified'])->name('welcome')
+=======
+
+
+
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name(name: 'dashboard');
+// ->middleware(['auth', 'verified'])->name('dashboard')
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,6 +46,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+<<<<<<< HEAD
 Route::withoutMiddleware([AdminMiddleware::class])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(UserMiddleware::class);
     Route::get('/product', [ProductController::class, 'index'])->name('product');
@@ -65,3 +80,14 @@ Route::withoutMiddleware([UserMiddleware::class])->group(function () {
 
 
 
+=======
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::get('/store', [StoreController::class, 'index'])->name('store');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+Route::get('/cart', [WishlistController::class, 'index'])->name('cart');
+Route::get('/', [HomeController::class, 'index'])->name('home') ;
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002

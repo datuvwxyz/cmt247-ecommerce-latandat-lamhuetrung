@@ -10,14 +10,22 @@
             <div id="aside" class="col-md-3">
                 <!-- aside Widget -->
                 <div class="aside">
+<<<<<<< HEAD
                     <h3 class="aside-title">Danh mục</h3>
+=======
+                    <h3 class="aside-title">Categories</h3>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
                             <input type="checkbox" id="category-1">
                             <label for="category-1">
                                 <span></span>
+<<<<<<< HEAD
                                 Laptop
+=======
+                                Laptops
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                                 <small>(120)</small>
                             </label>
                         </div>
@@ -72,7 +80,11 @@
 
                 <!-- aside Widget -->
                 <div class="aside">
+<<<<<<< HEAD
                     <h3 class="aside-title">Giá</h3>
+=======
+                    <h3 class="aside-title">Price</h3>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                     <div class="price-filter">
                         <div id="price-slider"></div>
                         <div class="input-number price-min">
@@ -92,7 +104,11 @@
 
                 <!-- aside Widget -->
                 <div class="aside">
+<<<<<<< HEAD
                     <h3 class="aside-title">Thương hiệu</h3>
+=======
+                    <h3 class="aside-title">Brand</h3>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                     <div class="checkbox-filter">
                         <div class="input-checkbox">
                             <input type="checkbox" id="brand-1">
@@ -148,7 +164,11 @@
 
                 <!-- aside Widget -->
                 <div class="aside">
+<<<<<<< HEAD
                     <h3 class="aside-title">Bán chạy nhất</h3>
+=======
+                    <h3 class="aside-title">Top selling</h3>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                     <div class="product-widget">
                         <div class="product-img">
                             <img src="./img/product01.png" alt="">
@@ -192,10 +212,17 @@
                 <div class="store-filter clearfix">
                     <div class="store-sort">
                         <label>
+<<<<<<< HEAD
                             Sắp xếp theo:
                             <select class="input-select">
                                 <option value="0">Phổ biến</option>
                                 <option value="1">Vị trí</option>
+=======
+                            Sort By:
+                            <select class="input-select">
+                                <option value="0">Popular</option>
+                                <option value="1">Position</option>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                             </select>
                         </label>
 
@@ -482,7 +509,11 @@
 
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
+<<<<<<< HEAD
                     <span class="store-qty">Xem 20-100 sản phẩm</span>
+=======
+                    <span class="store-qty">Showing 20-100 products</span>
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
                     <ul class="store-pagination">
                         <li class="active">1</li>
                         <li><a href="#">2</a></li>
@@ -500,4 +531,8 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002

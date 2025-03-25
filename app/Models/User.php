@@ -2,16 +2,26 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
+=======
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+<<<<<<< HEAD
     use HasFactory, Notifiable;
 
     const ROLE_ADMIN = 'admin';
     const ROLE_USER = 'user';
+=======
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable;
+
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +31,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+<<<<<<< HEAD
         'role', // Thêm role vào danh sách fillable
+=======
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
     ];
 
     /**
@@ -46,6 +59,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+<<<<<<< HEAD
 
     /**
      * Kiểm tra nếu người dùng là admin.
@@ -56,4 +70,6 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+=======
+>>>>>>> 1caad101946840d550a27e6cd657752c6768a002
 }
