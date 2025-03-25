@@ -4,7 +4,7 @@ namespace App\Http;
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ReviewController;
-use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\CartController;
@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 Route::withoutMiddleware([AdminMiddleware::class])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(UserMiddleware::class);
     Route::get('/product', [ProductController::class, 'index'])->name('product');
@@ -45,11 +45,19 @@ Route::withoutMiddleware([AdminMiddleware::class])->group(function () {
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::get('/', [HomeController::class, 'index'])->name('home') ;
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
 Route::withoutMiddleware([UserMiddleware::class])->group(function () {
     Route::resource('categories', CategoryController::class);
+    Route::resource('brands', BrandController::class);
+
+    //Product
+    Route::resource('products', AdminProductController::class);
+    Route::post('products/{product}/soft-delete', [AdminProductController::class, 'softDelete'])->name('products.softDelete');
+    Route::post('products/{id}/restore', [AdminProductController::class, 'restore'])->name('products.restore');
+    Route::delete('products/{id}/hard-delete', [AdminProductController::class, 'hardDelete'])->name('products.hardDelete');
+    Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
 });
 
 // //ADMIN LÀM TRƯỚC CHỈNH SỬA SAU

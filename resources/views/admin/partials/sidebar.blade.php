@@ -64,8 +64,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" href="">Thêm mới</a>
-                <a class="collapse-item" href="">Danh sách</a>
+                <a class="collapse-item" href="{{ route('brands.create') }}">Thêm mới</a>
+                <a class="collapse-item" href="{{ route('brands.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
@@ -80,8 +80,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" href="">Thêm mới</a>
-                <a class="collapse-item" href="">Danh sách</a>
+                <a class="collapse-item" href="{{ route('products.create') }}">Thêm mới</a>
+                <a class="collapse-item" href="{{ route('products.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
