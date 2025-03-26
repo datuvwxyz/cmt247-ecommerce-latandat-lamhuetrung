@@ -44,8 +44,10 @@
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
 
-                                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                                    this.closest('form').submit();" class="fs-11">
+                                            <x-dropdown-link :href="route('logout')"
+                                                onclick="event.preventDefault();
+                                                                                    this.closest('form').submit();"
+                                                class="fs-11">
                                                 {{ __('Đăng xuất') }}
 
                                             </x-dropdown-link>
@@ -81,7 +83,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="{{route('home')}}" class="logo">
+                        <a href="{{ route('home') }}" class="logo">
                             <img src="/img/logo/cmtLogo.png" alt="" />
                         </a>
                     </div>
@@ -95,13 +97,13 @@
                             <div class="select-selected">Danh Mục</div>
                             <div class="select-items">
                                 <?php
-                                    use App\Models\Category;
+                                use App\Models\Category;
 
-                                    $categories = Category::orderBy('updated_at', 'desc')->get();
+                                $categories = Category::orderBy('updated_at', 'desc')->get();
                                 ?>
-                                @foreach($categories as $index => $category)
+                                @foreach ($categories as $index => $category)
                                     <div>
-                                        @if($category->name == 'Laptop')
+                                        @if ($category->name == 'Laptop')
                                             <i class="fa-solid fa-laptop"></i> {{ $category->name }}
                                         @elseif($category->name == 'Card đồ hoạ')
                                             <i class="fa-solid fa-microchip"></i> {{ $category->name }}
@@ -142,64 +144,82 @@
                     <div class="header-ctn">
                         <!-- Wishlist -->
                         <div>
-                            <a href="{{route('wishlist')}}">
+                            <a href="{{ route('wishlist') }}">
                                 <i class="fa fa-heart-o"></i>
                                 <span>Yêu thích</span>
                                 <div class="qty">2</div>
                             </a>
                         </div>
                         <!-- /Wishlist -->
+                        <?php
+                        use App\Models\Cart;
 
+                        $user = Auth::user();
+                        $cart = Cart::firstOrCreate(['user_id' => $user->id]);
+                        $cartItems = $cart->cartItems()->with('product')->get();
+
+                        // Tính tổng số lượng sản phẩm trong giỏ
+                        $totalQuantity = $cartItems->sum('quantity');
+                        $totalPrice = $cartItems->sum(function ($item) {
+                            return $item->product->price * $item->quantity;
+                        });
+                    ?>
                         <!-- Cart -->
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Giỏ hàng</span>
-                                <div class="qty">3</div>
+                                <div class="qty">{{ $totalQuantity }}</div>
                             </a>
                             <div class="cart-dropdown">
                                 <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product01.png" alt="" />
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name">
-                                                <a href="#">product name goes here</a>
-                                            </h3>
-                                            <h4 class="product-price">
-                                                <span class="qty">1x</span>$980.00
-                                            </h4>
-                                        </div>
-                                        <button class="delete">
-                                            <i class="fa fa-close"></i>
-                                        </button>
-                                    </div>
 
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product02.png" alt="" />
+                                    @if ($cartItems->isNotEmpty())
+                                    @foreach ($cartItems as $item)
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="{{ Storage::url($item->product->image) }}" alt="" />
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name">
+                                                    <a href="#">{{ $item->product->name }}</a>
+                                                </h3>
+                                                <h4 class="product-price">
+                                                    <span class="qty">{{ $item->quantity }}</span>{{ number_format($item->product->price, 0, ',', '.') }} VNĐ
+                                                </h4>
+                                            </div>
+                                            <div class="col">
+                                                <form action="{{ route('carts.destroy', $item->id) }}" method="POST" class="delete-cart-item">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button  type="submit" class="delete"><i class="fa fa-close"></i></button>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name">
-                                                <a href="#">product name goes here</a>
-                                            </h3>
-                                            <h4 class="product-price">
-                                                <span class="qty">3x</span>$980.00
-                                            </h4>
-                                        </div>
-                                        <button class="delete">
-                                            <i class="fa fa-close"></i>
-                                        </button>
-                                    </div>
+                                    @endforeach
+                                @else
+                                    <p class="text-center mt-4">Không có sản phẩm trong giỏ hàng.</p>
+                                @endif
+
+                                @if (session('success'))
+                                    <script>
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Thành công',
+                                            text: '{{ session('success') }}',
+                                            timer: 2000,
+                                            showConfirmButton: false
+                                        });
+                                    </script>
+                                @endif
                                 </div>
                                 <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
+                                    <small>{{ $totalQuantity }} sản phẩm</small>
+                                    <h5>Tổng tiền: {{ number_format($totalPrice, 0, ',', '.') }} VNĐ</h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="{{route('cart')}}">Xem giỏ hàng</a>
-                                    <a href="{{route('checkout')}}">Thanh toán<i
+                                    <a href="{{ route('carts.index') }}">Xem giỏ hàng</a>
+                                    <a href="{{ route('checkout') }}">Thanh toán<i
                                             class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
@@ -223,6 +243,33 @@
         <!-- container -->
     </div>
     <!-- /MAIN HEADER -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.delete-cart-item');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const form = button.closest('form');
+
+                    Swal.fire({
+                        title: 'Xác nhận xoá?',
+                        text: "Bạn có chắc chắn muốn xoá sản phẩm này khỏi giỏ hàng?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Xoá',
+                        cancelButtonText: 'Huỷ',
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </header>
 {{-- <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Responsive Navigation Menu -->

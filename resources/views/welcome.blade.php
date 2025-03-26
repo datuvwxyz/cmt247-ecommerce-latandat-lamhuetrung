@@ -18,37 +18,38 @@
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
 
     <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="css/slick.css" />
-    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/slick.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/slick-theme.css')}}" />
 
     <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/nouislider.min.css')}}" />
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}" />
     <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css')}}" />
 
     <!-- Contact Style -->
-    <link type="text/css" rel="stylesheet" href="css/contact.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/contact.css')}}" />
 
     <!-- Cart Style -->
-    <link type="text/css" rel="stylesheet" href="css/cart.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/cart.css')}}" />
 
     <!-- SearchBar Custom Style -->
-    <link type="text/css" rel="stylesheet" href="css/search-bar-custom.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('css/search-bar-custom.css')}}" />
 
      <!-- Wishlist Custom Style -->
-     <link type="text/css" rel="stylesheet" href="css/wishlist.css" />
+     <link type="text/css" rel="stylesheet" href="{{asset('css/wishlist.css')}}" />
 
     <!-- CMT logo -->
-    <link rel="icon" href="img/logo/cmtLogo.png" type="image/png">
+    <link rel="icon" href="{{asset('img/logo/cmtLogo.png')}}" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -70,15 +71,15 @@
     <!-- /FOOTER -->
 
     <!-- jQuery Plugins -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/nouislider.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
+    <script src="{{asset('js/nouislider.min.js')}}"></script>
+    <script src="{{asset('js/jquery.zoom.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 
     <!-- SearchBar custom script -->
-    <script src="js/search-bar-custom.js"></script>
+    <script src="{{asset('js/search-bar-custom.js')}}"></script>
 
 </body>
 

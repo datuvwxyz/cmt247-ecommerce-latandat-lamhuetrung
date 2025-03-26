@@ -108,7 +108,7 @@ input:focus::-webkit-input-placeholder
     border-color: #000;
     color: white;
     width: 100%;
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     margin-top: 4vh;
     padding: 1vh;
     border-radius: 0;
@@ -120,13 +120,13 @@ input:focus::-webkit-input-placeholder
     color: white;
     -webkit-box-shadow: none;
     -webkit-user-select: none;
-    transition: none; 
+    transition: none;
 }
 .btn:hover{
     color: white;
 }
 a{
-    color: black; 
+    color: black;
 }
 a:hover{
     color: black;

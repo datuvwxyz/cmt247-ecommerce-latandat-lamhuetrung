@@ -39,14 +39,15 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 Route::withoutMiddleware([AdminMiddleware::class])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(UserMiddleware::class);
-    Route::get('/product', [ProductController::class, 'index'])->name('product');
+    Route::get('/product/{id}', [ProductController::class, 'index'])->name('product');
     Route::get('/store', [StoreController::class, 'index'])->name('store');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
-    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    // Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/', [HomeController::class, 'index'])->name('home');
 });
+
 
 Route::withoutMiddleware([UserMiddleware::class])->group(function () {
     Route::resource('categories', CategoryController::class);
@@ -59,6 +60,11 @@ Route::withoutMiddleware([UserMiddleware::class])->group(function () {
     Route::delete('products/{id}/hard-delete', [AdminProductController::class, 'hardDelete'])->name('products.hardDelete');
     Route::get('products/{id}', [AdminProductController::class, 'show'])->name('products.show');
     Route::post('products/import', [AdminProductController::class, 'import'])->name('products.import');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource('carts', CartController::class);
+
 });
 
 // //ADMIN LÀM TRƯỚC CHỈNH SỬA SAU
