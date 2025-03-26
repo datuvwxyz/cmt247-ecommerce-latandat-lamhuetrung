@@ -46,7 +46,7 @@
 
                                             <x-dropdown-link :href="route('logout')"
                                                 onclick="event.preventDefault();
-                                                                                    this.closest('form').submit();"
+                                                                                            this.closest('form').submit();"
                                                 class="fs-11">
                                                 {{ __('Đăng xuất') }}
 
@@ -154,16 +154,23 @@
                         <?php
                         use App\Models\Cart;
 
-                        $user = Auth::user();
-                        $cart = Cart::firstOrCreate(['user_id' => $user->id]);
-                        $cartItems = $cart->cartItems()->with('product')->get();
+                        use Illuminate\Support\Facades\Auth;
 
-                        // Tính tổng số lượng sản phẩm trong giỏ
-                        $totalQuantity = $cartItems->sum('quantity');
-                        $totalPrice = $cartItems->sum(function ($item) {
-                            return $item->product->price * $item->quantity;
-                        });
-                    ?>
+                        $totalQuantity = 0;
+                        $totalPrice = 0;
+                        $cartItems = collect();
+
+                        if (Auth::check()) {
+                            $user = Auth::user();
+                            $cart = Cart::firstOrCreate(['user_id' => $user->id]);
+                            $cartItems = $cart->cartItems()->with('product')->get();
+                            $totalQuantity = $cartItems->sum('quantity');
+                            $totalPrice = $cartItems->sum(function ($item) {
+                                return $item->product->price * $item->quantity;
+                            });
+                        }
+                        ?>
+                        @if (Auth::check())
                         <!-- Cart -->
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
@@ -175,43 +182,48 @@
                                 <div class="cart-list">
 
                                     @if ($cartItems->isNotEmpty())
-                                    @foreach ($cartItems as $item)
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src="{{ Storage::url($item->product->image) }}" alt="" />
+                                        @foreach ($cartItems as $item)
+                                            <div class="product-widget">
+                                                <div class="product-img">
+                                                    <img src="{{ Storage::url($item->product->image) }}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="product-body">
+                                                    <h3 class="product-name">
+                                                        <a href="#">{{ $item->product->name }}</a>
+                                                    </h3>
+                                                    <h4 class="product-price">
+                                                        <span
+                                                            class="qty">{{ $item->quantity }}</span>{{ number_format($item->product->price, 0, ',', '.') }}
+                                                        VNĐ
+                                                    </h4>
+                                                </div>
+                                                <div class="col">
+                                                    <form action="{{ route('carts.destroy', $item->id) }}"
+                                                        method="POST" class="delete-cart-item">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="delete"><i
+                                                                class="fa fa-close"></i></button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name">
-                                                    <a href="#">{{ $item->product->name }}</a>
-                                                </h3>
-                                                <h4 class="product-price">
-                                                    <span class="qty">{{ $item->quantity }}</span>{{ number_format($item->product->price, 0, ',', '.') }} VNĐ
-                                                </h4>
-                                            </div>
-                                            <div class="col">
-                                                <form action="{{ route('carts.destroy', $item->id) }}" method="POST" class="delete-cart-item">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button  type="submit" class="delete"><i class="fa fa-close"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <p class="text-center mt-4">Không có sản phẩm trong giỏ hàng.</p>
-                                @endif
+                                        @endforeach
+                                    @else
+                                        <p class="text-center mt-4">Không có sản phẩm trong giỏ hàng.</p>
+                                    @endif
 
-                                @if (session('success'))
-                                    <script>
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'Thành công',
-                                            text: '{{ session('success') }}',
-                                            timer: 2000,
-                                            showConfirmButton: false
-                                        });
-                                    </script>
-                                @endif
+                                    @if (session('success'))
+                                        <script>
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Thành công',
+                                                text: '{{ session('success') }}',
+                                                timer: 2000,
+                                                showConfirmButton: false
+                                            });
+                                        </script>
+                                    @endif
                                 </div>
                                 <div class="cart-summary">
                                     <small>{{ $totalQuantity }} sản phẩm</small>
@@ -224,6 +236,28 @@
                                 </div>
                             </div>
                         </div>
+                        @else
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Giỏ hàng</span>
+                                <div class="qty">0</div>
+                            </a>
+                            <div class="cart-dropdown">
+                                <div class="cart-list">
+                                </div>
+                                <div class="cart-summary">
+                                    <small>0 sản phẩm</small>
+                                    <h5>Tổng tiền: 0 VNĐ</h5>
+                                </div>
+                                <div class="cart-btns">
+                                    <a href="{{ route('carts.index') }}">Xem giỏ hàng</a>
+                                    <a href="{{ route('checkout') }}">Thanh toán<i
+                                            class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                         <!-- /Cart -->
 
                         <!-- Menu Toogle -->
