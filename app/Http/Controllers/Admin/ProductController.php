@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Storage;
+use App\Imports\ProductImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -153,4 +155,30 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Sản phẩm đã được xóa vĩnh viễn.');
     }
+
+    // Phương thức xử lý import dữ liệu từ file Excel
+    public function import(Request $request)
+    {
+        // Kiểm tra tính hợp lệ của file
+        $request->validate([
+            'file' => 'required|mimes:xlsx,csv',
+        ]);
+
+        try {
+            // Xử lý file import
+            Excel::import(new ProductImport, $request->file('file'));
+
+            // Sau khi import thành công
+            return redirect()->route('products.index')->with('success', 'Dữ liệu đã được nhập thành công!');
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            // Nếu có lỗi trong quá trình import (ví dụ: dữ liệu không hợp lệ)
+            $errors = $e->getMessage();
+
+            return redirect()->route('products.index')->with('error', 'Lỗi khi nhập dữ liệu: ' . $errors);
+        } catch (\Exception $e) {
+            // Xử lý các lỗi khác (ví dụ: file không hợp lệ, hoặc các lỗi khác)
+            return redirect()->route('products.index')->with('error', 'Đã xảy ra lỗi khi nhập dữ liệu: ' . $e->getMessage());
+        }
+    }
+
 }

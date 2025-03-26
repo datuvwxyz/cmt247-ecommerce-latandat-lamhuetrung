@@ -57,7 +57,8 @@ Route::withoutMiddleware([UserMiddleware::class])->group(function () {
     Route::post('products/{product}/soft-delete', [AdminProductController::class, 'softDelete'])->name('products.softDelete');
     Route::post('products/{id}/restore', [AdminProductController::class, 'restore'])->name('products.restore');
     Route::delete('products/{id}/hard-delete', [AdminProductController::class, 'hardDelete'])->name('products.hardDelete');
-    Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
+    Route::get('products/{id}', [AdminProductController::class, 'show'])->name('products.show');
+    Route::post('products/import', [AdminProductController::class, 'import'])->name('products.import');
 });
 
 // //ADMIN LÀM TRƯỚC CHỈNH SỬA SAU

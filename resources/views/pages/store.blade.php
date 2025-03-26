@@ -1,293 +1,95 @@
 @extends('welcome')
 @section('content')
-<!-- SECTION -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <!-- ASIDE -->
-            <div id="aside" class="col-md-3">
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Danh mục</h3>
-                    <div class="checkbox-filter">
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-1">
-                            <label for="category-1">
-                                <span></span>
-                                Laptop
-                                <small>(120)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-2">
-                            <label for="category-2">
-                                <span></span>
-                                Smartphones
-                                <small>(740)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-3">
-                            <label for="category-3">
-                                <span></span>
-                                Cameras
-                                <small>(1450)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-4">
-                            <label for="category-4">
-                                <span></span>
-                                Accessories
-                                <small>(578)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-5">
-                            <label for="category-5">
-                                <span></span>
-                                Laptops
-                                <small>(120)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-6">
-                            <label for="category-6">
-                                <span></span>
-                                Smartphones
-                                <small>(740)</small>
-                            </label>
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- ASIDE -->
+                <div id="aside" class="col-md-3">
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Danh mục</h3>
+                        <div class="checkbox-filter">
+                            @foreach($categories as $category)
+                                <div class="input-checkbox">
+                                    <input type="checkbox" id="{{ $category->id }}" value="{{ $category->id }}">
+                                    <label for="{{ $category->id }}">
+                                        <span></span>
+                                        {{ $category->name }}
+                                        <small>({{ $category->product_count }})</small>
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                </div>
-                <!-- /aside Widget -->
+                    <!-- /aside Widget -->
 
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Giá</h3>
-                    <div class="price-filter">
-                        <div id="price-slider"></div>
-                        <div class="input-number price-min">
-                            <input id="price-min" type="number">
-                            <span class="qty-up">+</span>
-                            <span class="qty-down">-</span>
-                        </div>
-                        <span>-</span>
-                        <div class="input-number price-max">
-                            <input id="price-max" type="number">
-                            <span class="qty-up">+</span>
-                            <span class="qty-down">-</span>
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Giá</h3>
+                        <div class="price-filter">
+                            <div id="price-slider"></div>
+                            <div class="input-number price-min">
+                                <input id="price-min" type="number">
+                                <span class="qty-up">+</span>
+                                <span class="qty-down">-</span>
+                            </div>
+                            <span>-</span>
+                            <div class="input-number price-max">
+                                <input id="price-max" type="number">
+                                <span class="qty-up">+</span>
+                                <span class="qty-down">-</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- /aside Widget -->
+                    <!-- /aside Widget -->
 
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Thương hiệu</h3>
-                    <div class="checkbox-filter">
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-1">
-                            <label for="brand-1">
-                                <span></span>
-                                SAMSUNG
-                                <small>(578)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-2">
-                            <label for="brand-2">
-                                <span></span>
-                                LG
-                                <small>(125)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-3">
-                            <label for="brand-3">
-                                <span></span>
-                                SONY
-                                <small>(755)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-4">
-                            <label for="brand-4">
-                                <span></span>
-                                SAMSUNG
-                                <small>(578)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-5">
-                            <label for="brand-5">
-                                <span></span>
-                                LG
-                                <small>(125)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-6">
-                            <label for="brand-6">
-                                <span></span>
-                                SONY
-                                <small>(755)</small>
-                            </label>
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Thương hiệu</h3>
+                        <div class="checkbox-filter">
+                            @foreach($brands as $brand)
+                                <div class="input-checkbox">
+                                    <input type="checkbox" id="{{ $brand->id }}">
+                                    <label for="{{ $brand->id }}">
+                                        <span></span>
+                                        {{ $brand->name }}
+                                        <small>({{ $brand->product_count }})</small>
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                </div>
-                <!-- /aside Widget -->
+                    <!-- /aside Widget -->
 
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Bán chạy nhất</h3>
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="./img/product01.png" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        </div>
-                    </div>
-
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="./img/product02.png" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        </div>
-                    </div>
-
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="./img/product03.png" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- /aside Widget -->
-            </div>
-            <!-- /ASIDE -->
-
-            <!-- STORE -->
-            <div id="store" class="col-md-9">
-                <!-- store top filter -->
-                <div class="store-filter clearfix">
-                    <div class="store-sort">
-                        <label>
-                            Sắp xếp theo:
-                            <select class="input-select">
-                                <option value="0">Phổ biến</option>
-                                <option value="1">Vị trí</option>
-                            </select>
-                        </label>
-
-                        <label>
-                            Show:
-                            <select class="input-select">
-                                <option value="0">20</option>
-                                <option value="1">50</option>
-                            </select>
-                        </label>
-                    </div>
-                    <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                    </ul>
-                </div>
-                <!-- /store top filter -->
-
-                <!-- store products -->
-                <div class="row">
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Bán chạy nhất</h3>
+                        <div class="product-widget">
                             <div class="product-img">
                                 <img src="./img/product01.png" alt="">
-                                <div class="product-label">
-                                    <span class="sale">-30%</span>
-                                    <span class="new">NEW</span>
-                                </div>
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Category</p>
                                 <h3 class="product-name"><a href="#">product name goes here</a></h3>
                                 <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                             </div>
                         </div>
-                    </div>
-                    <!-- /product -->
 
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
+                        <div class="product-widget">
                             <div class="product-img">
                                 <img src="./img/product02.png" alt="">
-                                <div class="product-label">
-                                    <span class="new">NEW</span>
-                                </div>
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Category</p>
                                 <h3 class="product-name"><a href="#">product name goes here</a></h3>
                                 <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                             </div>
                         </div>
-                    </div>
-                    <!-- /product -->
 
-                    <div class="clearfix visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
+                        <div class="product-widget">
                             <div class="product-img">
                                 <img src="./img/product03.png" alt="">
                             </div>
@@ -295,209 +97,173 @@
                                 <p class="product-category">Category</p>
                                 <h3 class="product-name"><a href="#">product name goes here</a></h3>
                                 <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                             </div>
                         </div>
                     </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-lg visible-md"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/product04.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/product05.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/product06.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/product07.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/product08.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-
-                    <div class="clearfix visible-sm visible-xs"></div>
-
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/product09.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
+                    <!-- /aside Widget -->
                 </div>
-                <!-- /store products -->
+                <!-- /ASIDE -->
 
-                <!-- store bottom filter -->
-                <div class="store-filter clearfix">
-                    <span class="store-qty">Xem 20-100 sản phẩm</span>
-                    <ul class="store-pagination">
-                        <li class="active">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
+                <!-- STORE -->
+                <div id="store" class="col-md-9">
+                    <!-- store top filter -->
+                    <div class="store-filter clearfix">
+                        <div class="store-sort">
+                            <label>
+                                Sắp xếp theo:
+                                <select class="input-select">
+                                    <option value="0">Phổ biến</option>
+                                    <option value="1">Vị trí</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                Show:
+                                <select class="input-select">
+                                    <option value="0">20</option>
+                                    <option value="1">50</option>
+                                </select>
+                            </label>
+                        </div>
+                        <ul class="store-grid">
+                            <li class="active"><i class="fa fa-th"></i></li>
+                            <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- /store top filter -->
+
+                    <!-- store products -->
+                    <div class="row">
+                        @foreach($products as $index => $product)
+                                            <!-- product -->
+                                            <div class="col-md-4 col-xs-6">
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <img style="min-height: 245px;
+                                                                                                                                                                                                            max-height: 245px;"
+                                                            src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+                                                        <div class="product-label">
+                                                            {{-- <span class="sale">-30%</span> --}}
+                                                            @php
+                                                                // Kiểm tra nếu updated_at trong vòng 2 ngày gần đây
+                                                                $updatedWithinTwoDays = \Carbon\Carbon::parse($product->updated_at)->isAfter(\Carbon\Carbon::now()->subDays(2));
+                                                            @endphp
+                                                            @if($updatedWithinTwoDays)
+                                                                <span class="new">NEW</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-body">
+                                                        <p class="product-category">{{ $product->category->name }}</p>
+                                                        <h3 class="product-name"><a href="#">{{ $product->name }}</a></h3>
+                                                        <h4 class="product-price">{{ number_format($product->price, 0, ',', '.') }} VNĐ <del
+                                                                class="product-old-price">$990.00</del></h4>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                        <div class="product-btns">
+                                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                                                    class="tooltipp">add to wishlist</span></button>
+                                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span
+                                                                    class="tooltipp">add to compare</span></button>
+                                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
+                                                                    view</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-to-cart">
+                                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /product -->
+                                            <div class="clearfix visible-sm visible-xs"></div>
+                        @endforeach
+
+
+                        <!-- /product -->
+                    </div>
+                    <!-- /store products -->
+
+                    <style>
+                        /* Tùy chỉnh CSS cho phân trang */
+                        .pagination {
+                            display: flex;
+                            justify-content: flex-start;
+                            /* Căn trái để các nút phân trang bắt đầu từ bên trái */
+                            padding: 0;
+                            margin: 0;
+                            list-style: none;
+                            margin-top: 20px;
+                        }
+
+                        .pagination li {
+                            margin: 0 5px;
+                        }
+
+                        .page-item {
+                            margin-left: 5px;
+                            display: inline-block;
+                            width: 40px;
+                            height: 40px;
+                            line-height: 40px;
+                            text-align: center;
+                            background-color: #FFF;
+                            border: 1px solid #E4E7ED;
+                            -webkit-transition: 0.2s all;
+                            transition: 0.2s all;
+                        }
+
+                        .page-link {
+                            display: block;
+                            color: black;
+                            color: #2B2D42;
+                            font-weight: 500;
+                            -webkit-transition: 0.2s color;
+                            transition: 0.2s color;
+                        }
+
+                        .pagination>li>a,
+                        .pagination>li>span {
+                            position: unset;
+                            float: none;
+                            padding: 0;
+                            margin-left: 0;
+                            line-height: revert;
+                            color: #333;
+                            text-decoration: none;
+                            background-color: #fff;
+                            border: 1px solid #ddd;
+                        }
+
+                        .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover,.page-item.active.page-link {
+                            background-color: #D10024;
+                            border-color: #D10024;
+                            color: #FFF;
+                            font-weight: 500;
+                            cursor: default;
+                        }
+                        .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+                            color: #D10024;
+                        }
+                    </style>
+                    <!-- store bottom filter -->
+                    <div class="store-filter clearfix">
+                        <span class="store-qty">Xem {{ $products->count() }} sản phẩm</span>
+                        <ul class="store-pagination">
+                            {{ $products->links('pagination::bootstrap-4') }}
+                        </ul>
+                    </div>
+                    <!-- /store bottom filter -->
                 </div>
-                <!-- /store bottom filter -->
+                <!-- /STORE -->
             </div>
-            <!-- /STORE -->
+            <!-- /row -->
         </div>
-        <!-- /row -->
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /SECTION -->
+    <!-- /SECTION -->
 @endsection

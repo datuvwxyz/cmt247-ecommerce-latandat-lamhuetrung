@@ -16,7 +16,7 @@
                 <p><strong>Danh mục:</strong> {{ $product->category->name }}</p>
                 <p><strong>Thương hiệu:</strong> {{ $product->brand->name }}</p>
                 <p><strong>Giá:</strong> {{ number_format($product->price, 0, ',', '.') }} VNĐ</p>
-                <p><strong>Số lượng:</strong> {{ $product->quantity }}</p>
+                <p><strong>Số lượng:</strong> {{ $product->quantity }} {{ $product->unit }}</p>
                 <p><strong>Mô tả ngắn:</strong> {{ $product->short_description }}</p>
                 <p><strong>Mô tả chi tiết:</strong> </p>
             </div>
