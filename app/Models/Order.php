@@ -2,24 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    protected $table = 'orders';
-    protected $primaryKey = 'order_id';
-    public $incrementing = true;
-    protected $fillable = [
-        'user_id',
-        'total_price',
-        'status',
-    ];
+    protected $fillable = ['user_id', 'total_price', 'status'];
 
-    public function users()
+    // Mối quan hệ: Một đơn hàng thuộc về một người dùng
+    public function user()
     {
-        return $this->hasMany(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(User::class);
+    }
+
+    // Mối quan hệ: Một đơn hàng có thể có nhiều mặt hàng
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }
+

@@ -2,30 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Review extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    protected $table = 'reviews';
-    protected $primaryKey = 'review_id';
-    public $incrementing = true;
-    protected $fillable = [
-        'user_id',
-        'product_id',
-        'rating',
-        'comment',
-    ];
+    protected $fillable = ['user_id', 'product_id', 'rating', 'comment'];
 
-    public function users()
+    // Mối quan hệ: Một đánh giá thuộc về một người dùng
+    public function user()
     {
-        return $this->hasMany(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function products()
+    // Mối quan hệ: Một đánh giá thuộc về một sản phẩm
+    public function product()
     {
-        return $this->hasMany(Product::class, 'product_id', 'product_id');
+        return $this->belongsTo(Product::class);
     }
 }

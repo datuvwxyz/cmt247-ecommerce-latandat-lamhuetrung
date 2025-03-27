@@ -2,29 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
     use HasFactory;
 
-    protected $table = 'carts';
-    protected $primaryKey = 'cart_id';
-    public $incrementing = true;
-    protected $fillable = [
-        'user_id',
-        'product_id',
-        'quantity',
-    ];
+    protected $fillable = ['user_id'];
 
-    public function users()
+    // Mối quan hệ: Một giỏ hàng thuộc về một người dùng
+    public function user()
     {
-        return $this->hasMany(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function products()
+    // Mối quan hệ: Một giỏ hàng có thể có nhiều mặt hàng
+    public function cartItems()
     {
-        return $this->hasMany(Product::class, 'product_id', 'product_id');
+        return $this->hasMany(CartItem::class);
     }
 }

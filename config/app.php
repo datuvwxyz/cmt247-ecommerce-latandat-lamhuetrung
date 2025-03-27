@@ -12,9 +12,7 @@ return [
     | other UI elements where an application name needs to be displayed.
     |
     */
-
     'name' => env('CMT247', 'CMT247'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Environment

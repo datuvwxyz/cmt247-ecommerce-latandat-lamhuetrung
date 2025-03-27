@@ -4,24 +4,34 @@ namespace App\Http;
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ReviewController;
-use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ExportController as AdminExportController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductStatisticsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\UserMiddleware;
+use App\Http\Controllers\Admin\ExportController;
+
+// chạy lệnh php artisan db:seed để tạo tài khoản admin
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name(name: 'dashboard')->middleware(AdminMiddleware::class);
+
+Route::get('/welcome', [HomeController::class, 'index'])->name(name: 'welcome')->middleware(UserMiddleware::class);
+// ->middleware(['auth', 'verified'])->name('welcome')
+
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name(name: 'dashboard');
 // ->middleware(['auth', 'verified'])->name('dashboard')
-
-Route::get('/welcome', [HomeController::class, 'index'])->name(name: 'welcome');
-// ->middleware(['auth', 'verified'])->name('welcome')
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -29,32 +39,39 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/product', [ProductController::class, 'index'])->name('product');
-Route::get('/store', [StoreController::class, 'index'])->name('store');
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::get('/', [HomeController::class, 'index'])->name('home') ;
-
-//ADMIN LÀM TRƯỚC CHỈNH SỬA SAU
-Route::get('/listCategory', [CategoryController::class, 'index'])->name('listCategory');
-Route::get('/addCategory', [CategoryController::class, 'add'])->name('addCategory');
-
-Route::get('/listBrand', [BrandController::class, 'index'])->name('listBrand');
-Route::get('/addBrand', [BrandController::class, 'add'])->name('addBrand');
-
-Route::get('/listProduct', [AdminProductController::class, 'index'])->name('listProduct');
-Route::get('/addProduct', [AdminProductController::class, 'add'])->name('addProduct');
-
-Route::get('/listOrder', [OrderController::class, 'index'])->name('listOrder');
-Route::get('/addOrder', [OrderController::class, 'add'])->name('addOrder');
-
-Route::get('/listReview', [ReviewController::class, 'index'])->name('listReview');
+require __DIR__ . '/auth.php';
+Route::withoutMiddleware([AdminMiddleware::class])->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(UserMiddleware::class);
+    Route::get('/product/{id}', [ProductController::class, 'index'])->name('product');
+    Route::get('/store', [StoreController::class, 'index'])->name('store');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    // Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+});
 
 
+Route::withoutMiddleware([UserMiddleware::class])->group(function () {
+    Route::resource('categories', CategoryController::class);
+    Route::resource('brands', BrandController::class);
 
+    //Product
+    Route::resource('products', AdminProductController::class);
+    Route::post('products/{product}/soft-delete', [AdminProductController::class, 'softDelete'])->name('products.softDelete');
+    Route::post('products/{id}/restore', [AdminProductController::class, 'restore'])->name('products.restore');
+    Route::delete('products/{id}/hard-delete', [AdminProductController::class, 'hardDelete'])->name('products.hardDelete');
+    Route::get('products/{id}', [AdminProductController::class, 'show'])->name('products.show');
+    Route::post('products/import', [AdminProductController::class, 'import'])->name('products.import');
+});
 
+Route::middleware('auth')->group(function () {
+    Route::resource('carts', CartController::class);
+});
+
+// In routes/web.php
+Route::prefix('admin')->group(function () {
+    Route::get('/product-statistics', [ProductStatisticsController::class, 'index'])
+        ->name('product.statistics.index');
+
+    Route::get('/export-statistics', [ExportController::class, 'exportStatistics'])->name('export.statistics');
+});

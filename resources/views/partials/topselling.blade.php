@@ -16,6 +16,9 @@
                             <li><a data-toggle="tab" href="#tab2">Điện thoại</a></li>
                             <li><a data-toggle="tab" href="#tab2">Camera</a></li>
                             <li><a data-toggle="tab" href="#tab2">Phụ kiện</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Cameras</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Accessories</a></li>
                         </ul>
                     </div>
                 </div>
@@ -280,6 +283,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Danh mục</p>
+                                <p class="product-category">Category</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -297,6 +301,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Danh mục</p>
+                                <p class="product-category">Category</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -314,6 +319,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Danh mục</p>
+                                <p class="product-category">Category</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -333,6 +339,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Danh mục</p>
+                                <p class="product-category">Category</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -350,6 +357,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Danh mục</p>
+                                <p class="product-category">Category</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>
@@ -366,7 +374,7 @@
                                 <img src="./img/product03.png" alt="" />
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Danh mục</p>
+                                <p class="product-category">Category</p>
                                 <h3 class="product-name">
                                     <a href="#">product name goes here</a>
                                 </h3>

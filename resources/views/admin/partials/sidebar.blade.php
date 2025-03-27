@@ -48,8 +48,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" href="{{route('addCategory')}}">Thêm mới</a>
-                <a class="collapse-item" href="{{route('listCategory')}}">Danh sách</a>
+                <a class="collapse-item" href="{{ route('categories.create') }}">Thêm mới</a>
+                <a class="collapse-item" href="{{ route('categories.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
@@ -64,8 +64,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" href="{{route('addBrand')}}">Thêm mới</a>
-                <a class="collapse-item" href="{{route('listBrand')}}">Danh sách</a>
+                <a class="collapse-item" href="{{ route('brands.create') }}">Thêm mới</a>
+                <a class="collapse-item" href="{{ route('brands.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
@@ -80,8 +80,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" href="{{route('addProduct')}}">Thêm mới</a>
-                <a class="collapse-item" href="{{route('listProduct')}}">Danh sách</a>
+                <a class="collapse-item" href="{{ route('products.create') }}">Thêm mới</a>
+                <a class="collapse-item" href="{{ route('products.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
@@ -96,8 +96,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" href="{{route('addOrder')}}">Thêm mới</a>
-                <a class="collapse-item" href="{{route('listOrder')}}">Danh sách</a>
+                <a class="collapse-item" href="">Thêm mới</a>
+                <a class="collapse-item" href="">Danh sách</a>
             </div>
         </div>
     </li>
@@ -113,7 +113,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Chức năng:</h6>
                 <a class="collapse-item" onclick="DangPhatTrien()">Thêm mới</a>
-                <a class="collapse-item" href="{{route('listReview')}}">Danh sách</a>
+                <a class="collapse-item" href="">Danh sách</a>
             </div>
         </div>
     </li>
@@ -125,7 +125,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" onclick="DangPhatTrien()">
+        <a class="nav-link" href="{{ route('product.statistics.index') }}">
             <i class="fa-solid fa-chart-pie"></i>
             <span>Sản phẩm</span></a>
     </li>

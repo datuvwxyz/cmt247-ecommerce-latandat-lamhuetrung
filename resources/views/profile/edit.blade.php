@@ -38,6 +38,9 @@
     <link type="text/css" rel="stylesheet" href="css/contact.css" />
     <link type="text/css" rel="stylesheet" href="css/edit-profile.css" />
 
+    <!-- SearchBar Custom Style -->
+    <link type="text/css" rel="stylesheet" href="{{asset('css/search-bar-custom.css')}}" />
+
     <link rel="icon" href="img/logo/cmtLogo.png" type="image/png">
 
 </head>
