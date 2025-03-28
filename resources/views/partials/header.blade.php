@@ -231,8 +231,28 @@
                                 </div>
                                 <div class="cart-btns">
                                     <a href="{{ route('carts.index') }}">Xem giỏ hàng</a>
-                                    <a href="{{ route('checkout') }}">Thanh toán<i
+                                    <a id="checkout-btn" style="cursor: pointer;">Thanh toán<i
                                             class="fa fa-arrow-circle-right"></i></a>
+                                            <script>
+                                                // Lắng nghe sự kiện nhấn nút thanh toán trên header
+const checkoutButton = document.getElementById('checkout-btn');
+checkoutButton.addEventListener('click', function() {
+    // Giả sử bạn có tất cả các CartItem IDs trong mảng cartItems (có thể là từ server hoặc đã được render trong HTML)
+    const cartItems = @json($cartItems); // Lấy tất cả CartItem IDs từ PHP (dữ liệu từ controller)
+
+    if (cartItems.length === 0) {
+        Swal.fire('Giỏ hàng trống. Vui lòng thêm sản phẩm để thanh toán!');
+        return;
+    }
+
+    // Lấy tất cả các cart_item IDs
+    const cartItemIds = cartItems.map(item => item.id); // Lấy tất cả các ID từ giỏ hàng
+
+    // Chuyển đến trang thanh toán với các id sản phẩm đã chọn
+    window.location.href = "{{ route('checkout') }}?cart_items=" + cartItemIds.join(',');
+});
+
+                                            </script>
                                 </div>
                             </div>
                         </div>

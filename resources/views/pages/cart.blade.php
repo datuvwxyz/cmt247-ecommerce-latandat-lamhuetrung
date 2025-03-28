@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="row">
-            <div class="col-md-8 cart">
+            <div class="col-md-12 cart">
                 <div class="title">
                     <div class="row">
                         <div class="col">
@@ -16,8 +16,12 @@
                     @if ($cartItems->isNotEmpty())
                         @foreach ($cartItems as $item)
                             <div class="row align-items-center py-3" style="display: flex;">
+                                <div class="col-4" style="margin-right: 15px;">
+                                    <!-- Thay đổi từ radio thành checkbox -->
+                                    <input type="checkbox" class="product-checkbox" data-id="{{ $item->id }}" name="check[]" style="width: 15px;height: 15px;border-radius: 50%;">
+                                </div>
                                 <div class="col-4">
-                                    <img style="    width: 7.5rem;" src="{{ Storage::url($item->product->image) }}">
+                                    <img style="width: 7.5rem;" src="{{ Storage::url($item->product->image) }}">
                                 </div>
 
                                 <div class="col">
@@ -52,7 +56,7 @@
                                 </div>
 
                                 {{-- Nút xoá --}}
-                                <div class="col">
+                                <div class="col" style="display: flex;">
                                     <form action="{{ route('carts.destroy', $item->id) }}" method="POST"
                                         class="delete-cart-item">
                                         @csrf
@@ -60,6 +64,7 @@
                                         <button type="submit" class="btn btn-danger btn-sm">Xoá</button>
                                     </form>
                                 </div>
+
                                 @if (session('success'))
                                     <script>
                                         Swal.fire({
@@ -76,67 +81,48 @@
                     @else
                         <p class="text-center mt-4">Không có sản phẩm trong giỏ hàng.</p>
                     @endif
-
                 </div>
 
-                <div class="back-to-shop"><a href="{{ route('home') }}">&leftarrow; <span class="text-muted">Quay lại trang
-                            chính</a></span></div>
-            </div>
-            <div class="col-md-4 summary">
-                <div>
-                    <h5><b>Tổng cộng</b></h5>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">{{ $totalQuantity }} sản phẩm</div>
-                    <div class="col text-right">{{ number_format($totalPrice, 0, ',', '.') }} VNĐ</div>
-                </div>
+                <div class="back-to-shop"><a href="{{ route('home') }}">&leftarrow; <span class="text-muted">Quay lại trang chính</a></span></div>
 
-                <form class="cart-form my-3">
-                    <p>Giao hàng</p>
-                    <select class="cart-select form-select">
-                        <option class="text-muted" value="standard">Giao hàng tiêu chuẩn - 30.000đ</option>
-                        <option class="text-muted" value="fast">Giao hàng nhanh - 50.000đ</option>
-                        <option class="text-muted" value="free">Miễn phí (đơn trên 500.000đ)</option>
-                    </select>
-                </form>
-
-                <div class="row border-top pt-3">
-                    <div class="col">Tổng tiền</div>
-                    <div class="col text-right">{{ number_format($totalPrice, 0, ',', '.') }} VNĐ</div>
-                </div>
-
-                <button class="btn btn-primary mt-3">Thanh toán</button>
-
+                <button style="margin-left: 10px;height: 35px;" class="btn btn-primary mt-3" id="checkout-btn">Thanh toán</button>
             </div>
         </div>
     </div>
-@endsection
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const deleteButtons = document.querySelectorAll('.delete-cart-item');
 
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const form = button.closest('form');
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedItems = [];
 
-                Swal.fire({
-                    title: 'Xác nhận xoá?',
-                    text: "Bạn có chắc chắn muốn xoá sản phẩm này khỏi giỏ hàng?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Xoá',
-                    cancelButtonText: 'Huỷ',
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
+            // Lắng nghe sự kiện click vào ô chọn sản phẩm (checkbox)
+            const checkboxes = document.querySelectorAll('.product-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const productId = this.getAttribute('data-id');
+
+                    if (this.checked) {
+                        selectedItems.push(productId); // Thêm sản phẩm vào mảng khi chọn
+                    } else {
+                        const index = selectedItems.indexOf(productId);
+                        if (index > -1) {
+                            selectedItems.splice(index, 1); // Xoá sản phẩm khỏi mảng khi bỏ chọn
+                        }
                     }
                 });
             });
+
+            // Xử lý sự kiện nhấn nút thanh toán
+            const checkoutButton = document.getElementById('checkout-btn');
+            checkoutButton.addEventListener('click', function() {
+                if (selectedItems.length === 0) {
+                    Swal.fire('Vui lòng chọn ít nhất một sản phẩm để thanh toán!');
+                    return;
+                }
+
+                // Chuyển đến trang thanh toán với các id sản phẩm đã chọn
+                window.location.href = "{{ route('checkout') }}?cart_items=" + selectedItems.join(',');
+            });
         });
-    });
-</script>
+    </script>
+@endsection

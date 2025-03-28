@@ -1,5 +1,28 @@
 @extends('welcome')
 @section('content')
+@section('scripts')
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                title: 'Thành công!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'Đóng'
+            }).then(() => {
+                window.location.href = "{{ route('brands.index') }}";
+            });
+        </script>
+    @elseif(session('error'))
+        <script>
+            Swal.fire({
+                title: 'Lỗi!',
+                text: '{{ session('error') }}',
+                icon: 'error',
+                confirmButtonText: 'Đóng'
+            });
+        </script>
+    @endif
+@endsection
     <!-- SECTION -->
     <div class="section">
         <!-- container -->
@@ -139,3 +162,4 @@
     @include('partials.newlester');
     <!-- /NEWSLETTER -->
 @endsection
+

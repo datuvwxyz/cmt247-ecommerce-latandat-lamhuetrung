@@ -10,7 +10,7 @@ class Order extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['user_id', 'total_price', 'status'];
+    protected $fillable = ['user_id', 'total_price', 'status', 'address', 'phone_number'];
 
     // Mối quan hệ: Một đơn hàng thuộc về một người dùng
     public function user()

@@ -42,6 +42,7 @@ Route::withoutMiddleware([AdminMiddleware::class])->group(function () {
     Route::get('/product/{id}', [ProductController::class, 'index'])->name('product');
     Route::get('/store', [StoreController::class, 'index'])->name('store');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::post('/checkout', [CheckoutController::class, 'createOrder'])->name('order.create'); // Xử lý tạo đơn hàng
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
     // Route::get('/cart', [CartController::class, 'index'])->name('cart');
@@ -60,6 +61,9 @@ Route::withoutMiddleware([UserMiddleware::class])->group(function () {
     Route::delete('products/{id}/hard-delete', [AdminProductController::class, 'hardDelete'])->name('products.hardDelete');
     Route::get('products/{id}', [AdminProductController::class, 'show'])->name('products.show');
     Route::post('products/import', [AdminProductController::class, 'import'])->name('products.import');
+    Route::get('/listOrder', [OrderController::class, 'index'])->name('listOrder');
+    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -77,7 +81,6 @@ Route::middleware('auth')->group(function () {
 // Route::get('/listProduct', [AdminProductController::class, 'index'])->name('listProduct');
 // Route::get('/addProduct', [AdminProductController::class, 'add'])->name('addProduct');
 
-// Route::get('/listOrder', [OrderController::class, 'index'])->name('listOrder');
 // Route::get('/addOrder', [OrderController::class, 'add'])->name('addOrder');
 
 // Route::get('/listReview', [ReviewController::class, 'index'])->name('listReview');
