@@ -3,18 +3,15 @@
 namespace App\Http;
 
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
-use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
@@ -44,7 +41,6 @@ Route::withoutMiddleware([AdminMiddleware::class])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::post('/checkout', [CheckoutController::class, 'createOrder'])->name('order.create'); // Xử lý tạo đơn hàng
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
     // Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/', [HomeController::class, 'index'])->name('home');
 });

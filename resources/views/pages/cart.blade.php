@@ -103,6 +103,8 @@
 
                     if (this.checked) {
                         selectedItems.push(productId); // Thêm sản phẩm vào mảng khi chọn
+            console.log(selectedItems)
+
                     } else {
                         const index = selectedItems.indexOf(productId);
                         if (index > -1) {
@@ -112,6 +114,7 @@
                 });
             });
 
+            console.log(selectedItems)
             // Xử lý sự kiện nhấn nút thanh toán
             const checkoutButton = document.getElementById('checkout-btn');
             checkoutButton.addEventListener('click', function() {

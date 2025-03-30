@@ -142,15 +142,6 @@
                 <!-- ACCOUNT -->
                 <div class="col-md-3 clearfix">
                     <div class="header-ctn">
-                        <!-- Wishlist -->
-                        <div>
-                            <a href="{{ route('wishlist') }}">
-                                <i class="fa fa-heart-o"></i>
-                                <span>Yêu thích</span>
-                                <div class="qty">2</div>
-                            </a>
-                        </div>
-                        <!-- /Wishlist -->
                         <?php
                         use App\Models\Cart;
 
@@ -231,11 +222,11 @@
                                 </div>
                                 <div class="cart-btns">
                                     <a href="{{ route('carts.index') }}">Xem giỏ hàng</a>
-                                    <a id="checkout-btn" style="cursor: pointer;">Thanh toán<i
+                                    <a id="checkout-header-btn" style="cursor: pointer;">Thanh toán<i
                                             class="fa fa-arrow-circle-right"></i></a>
                                             <script>
                                                 // Lắng nghe sự kiện nhấn nút thanh toán trên header
-const checkoutButton = document.getElementById('checkout-btn');
+const checkoutButton = document.getElementById('checkout-header-btn');
 checkoutButton.addEventListener('click', function() {
     // Giả sử bạn có tất cả các CartItem IDs trong mảng cartItems (có thể là từ server hoặc đã được render trong HTML)
     const cartItems = @json($cartItems); // Lấy tất cả CartItem IDs từ PHP (dữ liệu từ controller)

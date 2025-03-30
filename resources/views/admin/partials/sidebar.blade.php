@@ -87,34 +87,10 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrder"
-            aria-expanded="true" aria-controls="collapseOrder">
+        <a class="nav-link " href="https://my.payos.vn/dc15f29c0d5d11f08bac0242ac110002/dashboard">
             <i class="fa-solid fa-cart-shopping"></i>
             <span>Đơn hàng</span>
         </a>
-        <div id="collapseOrder" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" href="/listOrder">Danh sách</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComment"
-            aria-expanded="true" aria-controls="collapseComment">
-            <i class="fa-solid fa-comment"></i>
-            <span>Đánh giá</span>
-        </a>
-        <div id="collapseComment" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Chức năng:</h6>
-                <a class="collapse-item" onclick="DangPhatTrien()">Thêm mới</a>
-                <a class="collapse-item" href="">Danh sách</a>
-            </div>
-        </div>
     </li>
 
     <hr class="sidebar-divider">

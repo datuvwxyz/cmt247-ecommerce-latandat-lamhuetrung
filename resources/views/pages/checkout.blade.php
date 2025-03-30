@@ -118,17 +118,21 @@
 
                     <div class="payment-method">
                         <div class="input-radio">
-                            <input type="radio" name="payment" id="payment-2">
-                            <label for="payment-2">
+                            <input type="radio" name="payment" id="payment-1" value="PayOs">
+                            <label for="payment-1">
                                 <span></span>
-                                Thanh toán online
+                                Thanh toán bằng ví PayOs
                             </label>
-                            <div class="caption">
-                                <p>Sacombank, MB bank, Vietcombank, Viettinbank</p>
-                            </div>
                         </div>
                         <div class="input-radio">
-                            <input type="radio" name="payment" id="payment-3">
+                            <input type="radio" name="payment" id="payment-2" value="VnPay">
+                            <label for="payment-2">
+                                <span></span>
+                                Thanh toán bằng VnPay
+                            </label>
+                        </div>
+                        <div class="input-radio">
+                            <input type="radio" name="payment" id="payment-3"value="Direct">
                             <label for="payment-3">
                                 <span></span>
                                 Thanh toán khi nhận hàng
@@ -136,7 +140,8 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="primary-btn order-submit" id="order-submit">Hoàn tất</button>
+                    <button name="payment-btn" type="submit" class="primary-btn order-submit" id="order-submit">Hoàn tất</button>
+
                 </form>
             </div>
 
@@ -210,8 +215,11 @@
 
         paymentRadios.forEach(radio => {
             radio.addEventListener('change', function() {
-                if (document.getElementById('payment-2').checked) {
-                    orderSubmitButton.textContent = 'Thanh toán';
+                if (document.getElementById('payment-1').checked) {
+                    orderSubmitButton.textContent = 'Thanh toán Bằng PayOs';
+                }
+                else if (document.getElementById('payment-2').checked) {
+                    orderSubmitButton.textContent = 'Thanh toán Bằng VnPay (sandbox)';
                 } else if (document.getElementById('payment-3').checked) {
                     orderSubmitButton.textContent = 'Hoàn tất';
                 }
